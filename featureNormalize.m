@@ -17,7 +17,7 @@ sigma = std(X);
 %	X_norm(:,i) = (X(:,i) .- mu(i)) / sigma(i);
 %end
 
-X_norm = (X - repmat(mu, [size(X,1),1]))./(repmat(sigma, [size(X,1),1]));
+X_norm = bsxfun(@rdivide, bsxfun(@minus, X, mu), sigma);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: First, for each feature dimension, compute the mean
